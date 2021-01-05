@@ -31,7 +31,7 @@ def main():
                      pretrained=False)
 
     model_trainer = Trainer(model, train_data=None, predict_dataset=test_iter, test_dataset=None, batch_size=8,vocab=vocab)
-    path = './ckpt/rnn_cnn_step1'
+    path = './ckpt/rnn_cnn_step106'
     state_dict = torch.load(path, map_location=device)
     model_trainer.load_state_dict(state_dict)
     with torch.no_grad():
@@ -41,7 +41,7 @@ def main():
 
 if __name__ =="__main__":
     #main()
-    fw = open('predict_rnn_cnn_1.csv', 'w', newline="", encoding='utf-8')
+    fw = open('predict_rnn_cnn.csv', 'w', newline="", encoding='utf-8')
     csv_write = csv.writer(fw)
     csv_write.writerow(['', 'sentiment'])
     label,indexs = main()
